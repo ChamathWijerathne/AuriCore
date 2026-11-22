@@ -1,8 +1,10 @@
 # firebase_client.py
+import os
+
 import requests
 from typing import Dict, Any, List, Optional
 
-FIREBASE_DB_URL = "https://migraine-personal-predict-default-rtdb.europe-west1.firebasedatabase.app"
+FIREBASE_DB_URL = os.environ.get("FIREBASE_DB_URL", "")  # e.g. https://<project>-default-rtdb.<region>.firebasedatabase.app
 
 def get_user_events(user_id: str) -> List[Dict[str, Any]]:
     url = f"{FIREBASE_DB_URL}/events/{user_id}.json"

@@ -6,13 +6,13 @@ export const appConfig = {
   
   // Supabase Configuration
   supabase: {
-    url: 'https://dbxujfpdufpnofxoqmqq.supabase.co',
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRieHVqZnBkdWZwbm9meG9xbXFxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5OTc2MzUsImV4cCI6MjA3NTU3MzYzNX0.j5ooRL-yARuZOqAd7dlh7E33U1kdtxOPMhTENP5NFH8',
+    url: process.env.EXPO_PUBLIC_SUPABASE_URL ?? '',
+    anonKey: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? '',
   },
   
   // Stream Chat Configuration
   streamChat: {
-    apiKey: 'ykycjfh6zw33', // Get from https://getstream.io/dashboard/
+    apiKey: process.env.EXPO_PUBLIC_STREAM_API_KEY ?? '', // from https://getstream.io/dashboard/
   },
   
   // Authentication Settings
@@ -63,7 +63,7 @@ export const appConfig = {
   
   // Weather API Configuration
   weather: {
-    apiKey: '2d0a7b8175429dda3d7ac8e4f835b1a4',
+    apiKey: process.env.EXPO_PUBLIC_OPENWEATHER_API_KEY ?? '',
     apiBaseUrl: 'https://api.openweathermap.org/data/2.5',
   },
   

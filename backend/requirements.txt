@@ -8,3 +8,5 @@ lightgbm
 joblib
 requests
 python-dotenv
+imbalanced-learn
+tqdm

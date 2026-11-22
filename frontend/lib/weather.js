@@ -3,7 +3,7 @@
  * Integrates with OpenWeatherMap API for weather data
  */
 
-const WEATHER_API_KEY = '2d0a7b8175429dda3d7ac8e4f835b1a4';
+const WEATHER_API_KEY = process.env.EXPO_PUBLIC_OPENWEATHER_API_KEY ?? '';
 const WEATHER_API_BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 /**

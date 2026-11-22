@@ -34,7 +34,7 @@ This repository contains **only backend logic**, not mobile UI or front-end code
 ### ✔ Fully Dockerized (Google Cloud Run-ready)  
 - Stateless  
 - Auto-scalable  
-- Works without secrets (public Firebase rules)
+- Firebase Realtime Database URL read from the `FIREBASE_DB_URL` environment variable
 
 ---
 
@@ -55,19 +55,19 @@ AuriCore/
 │ ├── README.md
 ```
 
-# Files NOT Included in the Repository
+# Data and models
 
-### Trained models
-
-├── models/*.pkl
-
----
-
-# Installation
+The model is trained on **synthetic data** produced by `generate_synthetic_data.py`
+(hackathon scope: no real patient data was used). Neither the generated data nor the
+trained models are committed, so generate them before running the API:
 
 ```bash
 pip install -r requirements.txt
 
+python generate_synthetic_data.py   # writes data/users.csv and data/synthetic_migraine_data.csv
+python train_models.py              # writes models/*.pkl (about 25 minutes on CPU: 1M rows)
+
+export FIREBASE_DB_URL=https://<project>-default-rtdb.<region>.firebasedatabase.app
 uvicorn app:app --host 0.0.0.0 --port 8080 --reload
 
 http://localhost:8080/health
